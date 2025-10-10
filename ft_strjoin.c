@@ -1,44 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcronin <jcronin@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 14:55:39 by jcronin           #+#    #+#             */
-/*   Updated: 2025/10/08 16:54:29 by jcronin          ###   ########.fr       */
+/*   Created: 2025/10/08 16:43:10 by jcronin           #+#    #+#             */
+/*   Updated: 2025/10/08 16:54:39 by jcronin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-size_t	ft_strnlen_b(const char *s, size_t maxlen)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
+	size_t	s1_len;
+	size_t	s2_len;
+	char	*b;
 	size_t	i;
 
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	b = malloc(s1_len + s2_len + 1);
 	i = 0;
-	while (s[i] && i < maxlen)
-		i++;
-	return (i);
-}
-
-char	*ft_strnstr(const char *big, const char *little, size_t len)
-{
-	size_t	i;
-	size_t	found;
-	size_t	little_len;
-
-	if (!*little)
-		return ((char *)big);
-	little_len = ft_strnlen_b(little, len);
-	i = 0;
-	while (i <= len - little_len)
+	while (i < s1_len)
 	{
-		if (big[i] == little[0])
-			if (ft_strncmp(big, little, little_len))
-				return ((char *)big);
-		big++;
+		b[i] = s1[i];
 		i++;
 	}
-	return (0);
+	i++;
+	while (i < s2_len)
+	{
+		b[s1_len + i] = s2[i];
+		i++;
+	}
+	return (b);
 }

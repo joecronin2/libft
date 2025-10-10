@@ -12,12 +12,11 @@
 
 #include "libft.h"
 
-// returns len of string tried to create
-// appends null terminated string to end of dst
-// size is full buffer size
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t dstlen, i;
+	size_t	dstlen;
+	size_t	i;
+
 	dstlen = ft_strlen(dst);
 	i = 0;
 	while (src[i] && (dstlen + i) < size - 1)

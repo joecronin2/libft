@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcronin <jcronin@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 14:55:39 by jcronin           #+#    #+#             */
-/*   Updated: 2025/10/08 16:54:29 by jcronin          ###   ########.fr       */
+/*   Created: 2025/10/08 16:20:35 by jcronin           #+#    #+#             */
+/*   Updated: 2025/10/08 16:42:41 by jcronin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-size_t	ft_strnlen_b(const char *s, size_t maxlen)
+size_t	ft_strnlen(const char *s, size_t maxlen)
 {
 	size_t	i;
 
@@ -22,23 +23,22 @@ size_t	ft_strnlen_b(const char *s, size_t maxlen)
 	return (i);
 }
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	size_t	l;
+	char	*b;
 	size_t	i;
-	size_t	found;
-	size_t	little_len;
 
-	if (!*little)
-		return ((char *)big);
-	little_len = ft_strnlen_b(little, len);
+	l = ft_strnlen((const char *)&s[start], len);
+	b = malloc(l + 1);
+	if (!b)
+		return (0);
 	i = 0;
-	while (i <= len - little_len)
+	while (i < l)
 	{
-		if (big[i] == little[0])
-			if (ft_strncmp(big, little, little_len))
-				return ((char *)big);
-		big++;
+		b[i] = s[start + i];
 		i++;
 	}
-	return (0);
+	b[i] = '\0';
+	return (b);
 }

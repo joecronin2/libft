@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcronin <jcronin@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 14:55:39 by jcronin           #+#    #+#             */
-/*   Updated: 2025/10/08 16:54:29 by jcronin          ###   ########.fr       */
+/*   Created: 2025/10/10 14:44:22 by jcronin           #+#    #+#             */
+/*   Updated: 2025/10/10 14:44:53 by jcronin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-size_t	ft_strnlen_b(const char *s, size_t maxlen)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
+	size_t	len;
+	char	*new;
 	size_t	i;
 
+	len = ft_strlen(s);
+	new = malloc(len);
+	if (!new)
+		return (NULL);
 	i = 0;
-	while (s[i] && i < maxlen)
-		i++;
-	return (i);
-}
-
-char	*ft_strnstr(const char *big, const char *little, size_t len)
-{
-	size_t	i;
-	size_t	found;
-	size_t	little_len;
-
-	if (!*little)
-		return ((char *)big);
-	little_len = ft_strnlen_b(little, len);
-	i = 0;
-	while (i <= len - little_len)
+	while (i < len)
 	{
-		if (big[i] == little[0])
-			if (ft_strncmp(big, little, little_len))
-				return ((char *)big);
-		big++;
+		new[i] = f(i, s[i]);
 		i++;
 	}
-	return (0);
+	return (new);
 }
