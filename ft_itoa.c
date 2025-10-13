@@ -44,11 +44,13 @@ char	*ft_itoa(int n)
 	if (un == 0)
 		*c++ = '0';
 	else
+	{
 		while (un)
 		{
-			*c++ = '0' + un % 10;
+			*c++ = '0' + (un % 10);
 			un /= 10;
 		}
+	}
 	if (n < 0)
 		*c++ = '-';
 	*c-- = '\0';
