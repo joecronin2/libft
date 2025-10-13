@@ -13,72 +13,103 @@
 #include "libft.h"
 #include <stdlib.h>
 
-size_t	chars_until(const char *str, char sep, int skip_in_charset)
+static int	find_next_word(const char *str, int *start, int *end, char sep)
+{
+	while (str[*start] && str[*start] == sep)
+		(*start)++;
+	*end = *start;
+	while (str[*end] && str[*end] != sep)
+		(*end)++;
+	return (*start < *end);
+}
+
+static int	count_strs(const char *str, char sep)
 {
 	int	count;
+	int	start;
+	int	end;
 
+	start = 0;
+	end = 0;
 	count = 0;
-	while (str[count] && (str[count] == sep) != skip_in_charset)
-		count++;
-	return (count);
-}
-
-size_t	count_strs(const char *str, char sep)
-{
-	size_t	count;
-	size_t	i;
-
-	count = 0;
-	i = 0;
-	while (str[i])
+	while (find_next_word(str, &start, &end, sep))
 	{
-		i += chars_until(&str[i], sep, 0);
-		if (!str[i])
-			return (count);
-		i += chars_until(&str[i], sep, 1);
+		start = end;
 		count++;
 	}
 	return (count);
 }
 
-char	*ft_strndup(const char *str, size_t n)
+static int	fill_arr(const char *str, char **arr, char sep)
 {
-	char	*s;
-	size_t	i;
+	int	start;
+	int	end;
+	int	i;
 
-	s = malloc(n + 1);
+	start = 0;
+	end = 0;
 	i = 0;
-	while (*str && (i < n))
+	while (find_next_word(str, &start, &end, sep))
 	{
-		s[i] = str[i];
+		arr[i] = ft_substr(str, start, end - start);
+		if (!arr[i])
+		{
+			while (*arr)
+			{
+				free(*arr);
+				arr++;
+			}
+			return (0);
+		}
+		start = end;
 		i++;
 	}
-	s[i] = '\0';
-	return (s);
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
 {
+	int		size;
 	char	**arr;
-	int		i;
-	int		j;
-	int		cur_len;
-	int		strs;
 
-	strs = count_strs(s, c);
-	arr = malloc((strs + 1) * sizeof(char *));
-	i = 0;
-	j = 0;
-	while (s[i])
+	size = count_strs(s, c);
+	arr = malloc((size + 1) * sizeof(*arr));
+	if (!arr)
+		return (NULL);
+	if (!fill_arr(s, arr, c))
 	{
-		i += chars_until(&s[i], c, 0);
-		cur_len = chars_until(&s[i], c, 1);
-		if (cur_len == 0)
-			break ;
-		arr[j] = ft_strndup(&s[i], cur_len);
-		i += cur_len;
-		j++;
+		free(arr);
+		return (NULL);
 	}
-	arr[j] = 0;
 	return (arr);
 }
+
+// #include <assert.h>
+//
+// int	main(void)
+// {
+// 	int	start;
+// 	int	end;
+//
+// 	start = 0;
+// 	find_next_word("abc", &start, &end, ' ');
+// 	assert(start == 0);
+// 	assert(end == 3);
+// 	start = 0;
+// 	find_next_word("abc def", &start, &end, ' ');
+// 	assert(start == 0);
+// 	assert(end == 3);
+// 	start = 0;
+// 	find_next_word(" def", &start, &end, ' ');
+// 	assert(start == 1);
+// 	assert(end == 4);
+// 	start = 0;
+// 	find_next_word("", &start, &end, ' ');
+// 	assert(start == 0);
+// 	assert(end == 0);
+// 	assert(count_strs("aa bb cc dd ee", ' ') == 5);
+// 	assert(count_strs("", ' ') == 0);
+// 	assert(count_strs("    ", ' ') == 0);
+// 	assert(count_strs("aa", ' ') == 1);
+// 	return (0);
+// }
