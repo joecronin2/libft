@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-void	reverse_string(char *l, int len)
+static void	reverse_string(char *l, int len)
 {
 	char	*r;
 	char	tmp;

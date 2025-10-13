@@ -6,14 +6,14 @@
 /*   By: jcronin <jcronin@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 16:20:35 by jcronin           #+#    #+#             */
-/*   Updated: 2025/10/08 16:42:41 by jcronin          ###   ########.fr       */
+/*   Updated: 2025/10/10 19:56:15 by jcronin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-size_t	ft_strnlen(const char *s, size_t maxlen)
+static size_t	ft_strnlen(const char *s, size_t maxlen)
 {
 	size_t	i;
 
