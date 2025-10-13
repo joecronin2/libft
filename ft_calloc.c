@@ -18,12 +18,12 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	char	*m;
 	size_t	product;
 
-	if (nmemb == 0 || size == 0)
-		return (malloc(1));
 	product = nmemb * size;
-	if (product == 0 || product % nmemb != 0)
+	if (product == 0)
+		return (malloc(1));
+	if (size != 0 && nmemb > ((size_t)0 - 1) / size)
 		return (NULL);
-	m = malloc(nmemb * size);
+	m = malloc(product);
 	ft_bzero(m, product);
 	return (m);
 }

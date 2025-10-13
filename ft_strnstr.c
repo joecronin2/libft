@@ -6,13 +6,13 @@
 /*   By: jcronin <jcronin@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 14:55:39 by jcronin           #+#    #+#             */
-/*   Updated: 2025/10/08 16:54:29 by jcronin          ###   ########.fr       */
+/*   Updated: 2025/10/13 15:17:21 by jcronin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_strnlen_b(const char *s, size_t maxlen)
+static size_t	ft_strnlen(const char *s, size_t maxlen)
 {
 	size_t	i;
 
@@ -25,12 +25,11 @@ static size_t	ft_strnlen_b(const char *s, size_t maxlen)
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
-	size_t	found;
 	size_t	little_len;
 
 	if (!*little)
 		return ((char *)big);
-	little_len = ft_strnlen_b(little, len);
+	little_len = ft_strnlen(little, len);
 	i = 0;
 	while (i <= len - little_len)
 	{
