@@ -11,14 +11,11 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	size_t	len;
-	size_t	i;
+	unsigned int	i;
 
-	len = ft_strlen(s);
 	i = 0;
 	while (s[i])
 	{
