@@ -21,6 +21,8 @@ char	*ft_strdup(const char *s)
 
 	len = ft_strlen(s);
 	b = malloc(len + 1);
+	if (!b)
+		return (NULL);
 	i = 0;
 	while (i < len)
 	{

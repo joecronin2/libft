@@ -40,6 +40,8 @@ char	*ft_itoa(int n)
 	else
 		un = n;
 	str = malloc(16);
+	if (!str)
+		return (NULL);
 	c = str;
 	if (un == 0)
 		*c++ = '0';
