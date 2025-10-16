@@ -28,14 +28,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	start;
-	char	*new;
 
 	i = 0;
-	while (is_in_set(s1[i], set))
+	while (s1[i] && is_in_set(s1[i], set))
 		i++;
 	start = i;
-	while (!is_in_set(s1[i], set))
+	while (s1[i] && !is_in_set(s1[i], set))
 		i++;
-	new = ft_substr(s1, start, i - start);
-	return (new);
+	return (ft_substr(s1, start, i - start));
 }
