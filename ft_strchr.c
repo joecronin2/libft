@@ -14,12 +14,9 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	*ptr;
-
-	ptr = (char *)s;
-	while (*ptr && *ptr != (char)c)
-		ptr++;
-	if (!*ptr)
+	while (*s && *s != (char)c)
+		s++;
+	if (!*s)
 		return (0);
-	return (ptr);
+	return ((char *)s);
 }

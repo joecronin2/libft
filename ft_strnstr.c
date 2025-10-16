@@ -34,9 +34,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (i <= len - little_len)
 	{
 		if (big[i] == little[0])
-			if (ft_strncmp(big, little, little_len))
-				return ((char *)big);
-		big++;
+			if (ft_strncmp(&big[i], little, little_len) == 0)
+				return ((char *)&big[i]);
 		i++;
 	}
 	return (0);
