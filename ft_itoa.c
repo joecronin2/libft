@@ -30,10 +30,8 @@ static char	*rev_str(const char *src, int len)
 char	*ft_itoa(int n)
 {
 	char			buf[16];
-	char			*c;
 	unsigned int	un;
 	int				i;
-	char			*res;
 
 	i = 0;
 	if (n < 0)
@@ -55,3 +53,17 @@ char	*ft_itoa(int n)
 		buf[i++] = '-';
 	return (rev_str(buf, i));
 }
+
+// #include <stdio.h>
+// #include <assert.h>
+// #include <string.h>
+//
+// int	main(void)
+// {
+// 	// printf("%s\n", ft_itoa(1234));
+// 	assert(strcmp(ft_itoa(1234), "1234") == 0);
+// 	assert(strcmp(ft_itoa(-1234), "-1234") == 0);
+// 	assert(strcmp(ft_itoa(0), "0") == 0);
+// 	assert(strcmp(ft_itoa(-2147483648), "-2147483648") == 0);
+// 	return (0);
+// }
