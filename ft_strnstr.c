@@ -40,3 +40,17 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (0);
 }
+
+// #include <assert.h>
+// #include <stdio.h>
+// #include <string.h>
+//
+// int	main(void)
+// {
+// 	char	*s;
+//
+// 	s = "bbaaaahaisnehanosehi";
+// 	assert(ft_strnstr(s, "aaaa", 20) == s + 2);
+// 	assert(ft_strnstr(s, "aaaa", 5) == NULL);
+// 	return (0);
+// }

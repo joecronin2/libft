@@ -25,17 +25,18 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	b = malloc(s1_len + s2_len + 1);
 	if (!b)
 		return (NULL);
-	i = 0;
-	while (i < s1_len)
-	{
-		b[i] = s1[i];
-		i++;
-	}
-	i++;
-	while (i < s2_len)
-	{
-		b[s1_len + i] = s2[i];
-		i++;
-	}
+	ft_memcpy(b, s1, s1_len);
+	ft_memcpy(b + s1_len, s2, s2_len);
 	return (b);
 }
+
+// #include <string.h>
+// #include <assert.h>
+//
+// int	main(void)
+// {
+// 	assert(strcmp(ft_strjoin("aaa", "bbb"), "aaabbb") == 0);
+// 	assert(strcmp(ft_strjoin("", "bbb"), "bbb") == 0);
+// 	assert(strcmp(ft_strjoin("aaa", ""), "aaa") == 0);
+// 	return (0);
+// }

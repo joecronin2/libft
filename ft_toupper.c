@@ -18,3 +18,16 @@ int	ft_toupper(int c)
 		return (c - 'a' + 'A');
 	return (c);
 }
+
+// #include <ctype.h>
+// #include <stdio.h>
+// #include <assert.h>
+//
+// int	main(void)
+// {
+// 	for (int i = -1; i < 256; i++){
+// 		printf("%d, %d, %d\n", i, toupper(i), ft_toupper(i));
+// 		assert(toupper(i) == ft_toupper(i));
+// 	}
+// 	return (0);
+// }

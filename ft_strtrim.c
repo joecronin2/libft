@@ -37,3 +37,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i++;
 	return (ft_substr(s1, start, i - start));
 }
+
+// #include <stdio.h>
+//
+// int main()
+// {
+// 	printf("%s\n", ft_strtrim("../././.hallo123.//././/.", "./"));
+// 	printf("%s\n", ft_strtrim("..", "./"));
+// 	printf("%s\n", ft_strtrim("hallo", "./"));
+// 	return (0);
+// }

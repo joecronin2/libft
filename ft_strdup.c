@@ -23,12 +23,6 @@ char	*ft_strdup(const char *s)
 	b = malloc(len + 1);
 	if (!b)
 		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		b[i] = s[i];
-		i++;
-	}
-	b[i] = '\0';
+	ft_memcpy(b, s, len + 1);
 	return (b);
 }

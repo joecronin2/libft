@@ -18,3 +18,16 @@ int	ft_tolower(int c)
 		return (c - 'A' + 'a');
 	return (c);
 }
+
+// #include <ctype.h>
+// #include <stdio.h>
+// #include <assert.h>
+//
+// int	main(void)
+// {
+// 	for (int i = -1; i < 256; i++){
+// 		printf("%d, %d, %d\n", i, tolower(i), ft_tolower(i));
+// 		assert(tolower(i) == ft_tolower(i));
+// 	}
+// 	return (0);
+// }
