@@ -20,11 +20,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	product = nmemb * size;
 	if (product == 0)
-	{
-		m = malloc(1);
-		if (!m)
-			return (NULL);
-	}
+		return (malloc(0));
 	if (size != 0 && nmemb > ((size_t)0 - 1) / size)
 		return (NULL);
 	m = malloc(product);
