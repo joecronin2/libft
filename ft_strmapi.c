@@ -20,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 
 	len = ft_strlen(s);
-	new = malloc(len);
+	new = malloc(len + 1);
 	if (!new)
 		return (NULL);
 	i = 0;
@@ -32,3 +32,17 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	new[len] = '\0';
 	return (new);
 }
+
+// char	addOne(unsigned int i, char c)
+// {
+// 	return (i + c);
+// }
+//
+// #include <stdio.h>
+//
+// int	main(void)
+// {
+// 	char * s = ft_strmapi("1234", addOne);
+// 	printf("%s\n", s);
+// 	return (0);
+// }

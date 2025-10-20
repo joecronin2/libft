@@ -64,6 +64,7 @@ static int	fill_arr(const char *str, char **arr, char sep)
 		start = end;
 		i++;
 	}
+	arr[i] = NULL;
 	return (1);
 }
 

@@ -24,6 +24,7 @@ static char	*rev_str(const char *src, int len)
 	i = 0;
 	while (len > 0)
 		str[i++] = src[--len];
+	str[i] = '\0';
 	return (str);
 }
 
@@ -51,6 +52,7 @@ char	*ft_itoa(int n)
 	buf[i] = '\0';
 	if (n < 0)
 		buf[i++] = '-';
+	buf[i] = '\0';
 	return (rev_str(buf, i));
 }
 

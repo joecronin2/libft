@@ -12,16 +12,6 @@
 
 #include "libft.h"
 
-static size_t	ft_strnlen(const char *s, size_t maxlen)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] && i < maxlen)
-		i++;
-	return (i);
-}
-
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
@@ -29,17 +19,22 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	if (!*little)
 		return ((char *)big);
-	little_len = ft_strnlen(little, len);
+	little_len = ft_strlen(little);
+	if (little_len > len)
+		return (NULL);
 	i = 0;
-	while (i <= len - little_len)
+	while (big[i] && i <= len - little_len)
 	{
 		if (big[i] == little[0])
 			if (ft_strncmp(&big[i], little, little_len) == 0)
 				return ((char *)&big[i]);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
+
+// abcdef len > 5
+//   cde  littlelen = 3
 
 // #include <assert.h>
 // #include <stdio.h>
@@ -48,9 +43,12 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 // int	main(void)
 // {
 // 	char	*s;
+// 	char	haystack[30] = "aaabcabcd";
+// 	char	needle[10] = "aabc";
 //
-// 	s = "bbaaaahaisnehanosehi";
-// 	assert(ft_strnstr(s, "aaaa", 20) == s + 2);
-// 	assert(ft_strnstr(s, "aaaa", 5) == NULL);
+// 	assert(ft_strnstr(haystack, needle, 0) == 0);
+// 	// s = "bbaaaahaisnehanosehi";
+// 	// assert(ft_strnstr(s, "aaaa", 20) == s + 2);
+// 	// assert(ft_strnstr(s, "aaaa", 5) == NULL);
 // 	return (0);
 // }
