@@ -25,3 +25,11 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
+
+// int	main(void)
+// {
+// 	int	a;
+//
+// 	a = ft_strncmp("aaa", "aaa", 2);
+// 	return (0);
+// }

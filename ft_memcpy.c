@@ -24,3 +24,11 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
+
+// int main(int argc, char *argv[])
+// {
+// 	char *a;
+// 	char *b;
+// 	ft_memcpy(a, b, 4);
+// 	return (0);
+// }

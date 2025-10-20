@@ -32,7 +32,7 @@ int	ft_atoi(const char *nptr)
 		nptr++;
 	}
 	a = 0;
-	while (*nptr >= '0' && *nptr <= '9')
+	while (ft_isdigit(*nptr))
 	{
 		a *= 10;
 		a += *nptr - '0';

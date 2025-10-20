@@ -27,6 +27,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_memcpy(b, s1, s1_len);
 	ft_memcpy(b + s1_len, s2, s2_len);
+	b[s1_len + s2_len] = '\0';
 	return (b);
 }
 
@@ -38,5 +39,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 // 	assert(strcmp(ft_strjoin("aaa", "bbb"), "aaabbb") == 0);
 // 	assert(strcmp(ft_strjoin("", "bbb"), "bbb") == 0);
 // 	assert(strcmp(ft_strjoin("aaa", ""), "aaa") == 0);
+// 	assert(strcmp(ft_strjoin("", ""), "") == 0);
 // 	return (0);
 // }

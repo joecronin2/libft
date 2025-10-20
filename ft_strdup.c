@@ -24,5 +24,6 @@ char	*ft_strdup(const char *s)
 	if (!b)
 		return (NULL);
 	ft_memcpy(b, s, len + 1);
+	b[len] = '\0';
 	return (b);
 }

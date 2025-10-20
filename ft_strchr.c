@@ -16,7 +16,14 @@ char	*ft_strchr(const char *s, int c)
 {
 	while (*s && *s != (char)c)
 		s++;
-	if (!*s)
+	if (c && !*s)
 		return (0);
 	return ((char *)s);
 }
+
+// #include <string.h>
+// int main()
+// {
+// 	ft_strchr("hello world", '\0');
+// 	return 0;
+// }
