@@ -24,3 +24,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	b[len] = '\0';
 	return (b);
 }
+
+// int main()
+// {
+// 	ft_substr("0123456789", 0, 98888888);
+// 	return 0;
+// }
