@@ -42,3 +42,15 @@ int	ft_atoi(const char *nptr)
 		return (-a);
 	return (a);
 }
+
+// #include <stdio.h>
+//
+// int	main(void)
+// {
+// 	int	a;
+//
+// 	// a = ft_atoi("2147483647");
+// 	a = ft_atoi("-2147483648");
+// 	printf("%d\n", a);
+// 	return (0);
+// }
