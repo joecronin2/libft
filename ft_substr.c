@@ -16,7 +16,13 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*b;
+	size_t	maxlen;
 
+	maxlen = ft_strlen(s);
+	if (start >= maxlen)
+		return (ft_strdup(""));
+	if (start + len > maxlen)
+		len = maxlen - start;
 	b = malloc(len + 1);
 	if (!b)
 		return (NULL);
@@ -24,3 +30,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	b[len] = '\0';
 	return (b);
 }
+
+// #include <assert.h>
+// #include <string.h>
+// int main() {
+//   assert(strcmp(ft_substr("0123456789", 4, 10), "456789") == 0);
+//   assert(strcmp(ft_substr("0123456789", 20, 1), "") == 0);
+//   return (0);
+// }
