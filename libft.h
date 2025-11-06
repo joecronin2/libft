@@ -32,6 +32,7 @@ int					ft_toupper(int c);
 int					ft_tolower(int c);
 
 size_t				ft_strlen(const char *s);
+size_t				strnlen(const char *s, size_t maxlen);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strchrnul(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
