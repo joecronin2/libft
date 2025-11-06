@@ -30,6 +30,7 @@ SRCS = \
 	ft_strdup.c \
 	ft_striteri.c \
 	ft_strjoin.c \
+	ft_strrev.c \
 	ft_strlen.c \
 	ft_strmapi.c \
 	ft_strcmp.c \
