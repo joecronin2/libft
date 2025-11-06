@@ -19,13 +19,6 @@ char	*ft_strchr(const char *s, int c)
 	return ((char *)s);
 }
 
-char	*ft_strchrnul(const char *s, int c)
-{
-	while (*s && *s != c)
-		s++;
-	return ((char *)s);
-}
-
 // #include <string.h>
 // int main()
 // {

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lltoa.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jcronin <jcronin@student.codam.nl>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/07 00:13:07 by jcronin           #+#    #+#             */
+/*   Updated: 2025/11/07 00:15:23 by jcronin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_lltostr_base(long long n, char *base, int base_len)
@@ -43,14 +55,14 @@ char	*ft_itostr(int n)
 	return (ft_itostr_base(n, "0123456789", 10));
 }
 
-#include <assert.h>
-#include <string.h>
-
-int	main(void)
-{
-	assert(strcmp(ft_lltostr(0), "0") == 0);
-	assert(strcmp(ft_lltostr(9223372036854775807), "9223372036854775807") == 0);
-	assert(strcmp(ft_lltostr(-9223372036854775807),
-			"-9223372036854775807") == 0);
-	return (0);
-}
+// #include <assert.h>
+// #include <string.h>
+//
+// int	main(void)
+// {
+// 	assert(strcmp(ft_lltostr(0), "0") == 0);
+// 	assert(strcmp(ft_lltostr(9223372036854775807), "9223372036854775807") == 0);
+// 	assert(strcmp(ft_lltostr(-9223372036854775807),
+// 			"-9223372036854775807") == 0);
+// 	return (0);
+// }

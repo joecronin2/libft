@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strtoll.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcronin <jcronin@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 15:56:57 by jcronin           #+#    #+#             */
-/*   Updated: 2025/10/08 16:08:34 by jcronin          ###   ########.fr       */
+/*   Updated: 2025/11/07 00:15:14 by jcronin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,21 +62,21 @@ long long	ft_strtoll(const char *nptr)
 
 int	ft_atoi(const char *nptr)
 {
-	return (int)ft_strtoll(nptr);
+	return ((int)ft_strtoll(nptr));
 }
 
-#include <assert.h>
-
-int	main(void)
-{
-	assert(ft_strtoull_base("0", "0123456789", 10) == 0);
-	assert(ft_strtoull_base("000012345", "0123456789", 10) == 12345);
-	assert(ft_strtoull_base("12345", "0123456789", 10) == 12345);
-	assert(ft_strtoull_base("10010", "01", 2) == 18);
-	assert(ft_strtoull_base("", "", 1) == 0);
-	assert(ft_atoi("0") == 0);
-	assert(ft_atoi("1234") == 1234);
-	assert(ft_atoi("-1234") == -1234);
-	assert(ft_atoi("+1234") == 1234);
-	return (0);
-}
+// #include <assert.h>
+//
+// int	main(void)
+// {
+// 	assert(ft_strtoull_base("0", "0123456789", 10) == 0);
+// 	assert(ft_strtoull_base("000012345", "0123456789", 10) == 12345);
+// 	assert(ft_strtoull_base("12345", "0123456789", 10) == 12345);
+// 	assert(ft_strtoull_base("10010", "01", 2) == 18);
+// 	assert(ft_strtoull_base("", "", 1) == 0);
+// 	assert(ft_atoi("0") == 0);
+// 	assert(ft_atoi("1234") == 1234);
+// 	assert(ft_atoi("-1234") == -1234);
+// 	assert(ft_atoi("+1234") == 1234);
+// 	return (0);
+// }
