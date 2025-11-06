@@ -1,10 +1,9 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 TARGET = libft.a
 
 SRCS = \
-  ft_atoi.c \
 	ft_bzero.c \
 	ft_calloc.c \
 	ft_isprint.c \
@@ -15,7 +14,6 @@ SRCS = \
 	ft_islower.c \
 	ft_isupper.c \
 	ft_islower.c \
-	ft_itoa.c \
 	ft_memchr.c \
 	ft_memcmp.c \
 	ft_memcpy.c \
