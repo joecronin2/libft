@@ -12,6 +12,9 @@ SRCS = \
 	ft_isascii.c \
 	ft_isalpha.c \
 	ft_isalnum.c \
+	ft_islower.c \
+	ft_isupper.c \
+	ft_islower.c \
 	ft_itoa.c \
 	ft_memchr.c \
 	ft_memcmp.c \
