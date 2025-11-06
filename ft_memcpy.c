@@ -47,8 +47,8 @@ void	*ft_memrcpy_items(void *dest, const void *src, size_t n, size_t n_size)
 	i = 0;
 	while (i < n)
 	{
-		d = (dest + n_size * i);
-		s = (src + n_size * (n - 1 + i));
+		d = (void *)((size_t)dest + n_size * i);
+		s = (const void *)((size_t)src + n_size * (n - 1 + i));
 		ft_memcpy(d, s, n_size);
 		i++;
 	}
