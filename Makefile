@@ -42,20 +42,7 @@ SRCS = \
 	ft_tolower.c \
 	ft_toupper.c
 
-BONUS_SRCS = \
-	ft_lstadd_back_bonus.c \
-	ft_lstadd_front_bonus.c \
-	ft_lstclear_bonus.c \
-	ft_lstdelone_bonus.c \
-	ft_lstiter_bonus.c \
-	ft_lstlast_bonus.c \
-	ft_lstmap_bonus.c \
-	ft_lstnew_bonus.c \
-	ft_lstsize_bonus.c
-
-
 OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 $(TARGET): $(OBJS)
 	ar rcs $@ $^
@@ -74,7 +61,4 @@ fclean: clean
 re: fclean 
 	$(MAKE) all
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar rcs $(TARGET) $^
-
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
